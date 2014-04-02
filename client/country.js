@@ -1,6 +1,6 @@
 if(Meteor.isClient) {
-    /*Meteor.subscribe("country");
-    Template.test.countries = function () {
+    Meteor.subscribe("country");
+    Template.country.countries = function () {
     return Country.find();
-  };*/
+  };
 }

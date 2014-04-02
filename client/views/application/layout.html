@@ -1,46 +1,74 @@
 <template name="home">
     <div>
+    	<h2>Iron-Router Examples</h2>
     	<nav>
 		  <a href="{{ pathFor 'about' }}">About</a>
+		  <br />
+		  <a href="{{ pathFor 'doublepath' }}">Double Path</a>
+		  <br />
+		  <a>One Parameter (type /home/1 in URL)</a>
+		  <br />
+		  <a>Option Route Path (type /home/parameter/oproute in URL)</a>
+		  <br />
+		  <a href="{{ pathFor 'datatest' }}">Data</a>
+		  <br />
+		  <a href="{{ pathFor 'country' }}">List Countries and City</a>
 		</nav>
+		<br />
 	   <p>This page has rendered home</p>
 	</div>
 </template>
 
 <template name="about">
     <div>
+      <a href="{{ pathFor 'home'}}">Back</a>
+	  <br />
 	   <p>This page has rendered the about page</p>
+	   <br />
 	</div>
 </template>
 
 <template name="doublepath">
     <div>
+      <a href="{{ pathFor 'home'}}">Back</a>
+	  <br />
 	   <p>This page has rendered a double path</p>
+	   <br />
 	</div>
 </template>
 
 <template name="paramone">
     <div>
+      <a href="{{ pathFor 'home'}}">Back</a>
+	  <br />
 	   <p>This page has rendered one parameter</p>
+	   <br />
 	</div>
 </template>
 
 <template name="oproutepath">
     <div>
+      <a href="{{ pathFor 'home'}}">Back</a>
+	  <br />
 	   <p>This page has rendered a optional route path</p>
+	   <br />
 	</div>
 </template>
 
 <template name="datatest">
+	  <a href="{{ pathFor 'home'}}">Back</a>
+	  <br />
   {{title}} - {{description}}
+  <br />
 </template>
 
 <template name="country">
-  {{#each countries}}
-  	{{country}}
-  {{/each}}
-</template>
-
-<template name="loading">
-  {{>spinner}}
+	<div>
+	  <a href="{{ pathFor 'home'}}">Back</a>
+	  <br />	
+	  {{#each countries}}
+	  	{{country}}, {{city}}
+	  	<br />
+	  {{/each}}
+	</div>
 </template>
