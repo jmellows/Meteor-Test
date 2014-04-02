@@ -1,10 +1,46 @@
-<template name="layout">
-	{{> yield}}
+<template name="home">
+    <div>
+    	<nav>
+		  <a href="{{ pathFor 'about' }}">About</a>
+		</nav>
+	   <p>This page has rendered home</p>
+	</div>
 </template>
 
-
-<template name="test">
+<template name="about">
     <div>
-	   <p>This page has rendered</p>
+	   <p>This page has rendered the about page</p>
 	</div>
+</template>
+
+<template name="doublepath">
+    <div>
+	   <p>This page has rendered a double path</p>
+	</div>
+</template>
+
+<template name="paramone">
+    <div>
+	   <p>This page has rendered one parameter</p>
+	</div>
+</template>
+
+<template name="oproutepath">
+    <div>
+	   <p>This page has rendered a optional route path</p>
+	</div>
+</template>
+
+<template name="datatest">
+  {{title}} - {{description}}
+</template>
+
+<template name="country">
+  {{#each countries}}
+  	{{country}}
+  {{/each}}
+</template>
+
+<template name="loading">
+  {{>spinner}}
 </template>

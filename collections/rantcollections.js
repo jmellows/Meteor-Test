@@ -1,7 +1,7 @@
 Country = new Meteor.Collection("country");
 
-/*Country.allow({
+Country.allow({
   insert: function(country) {
     return true;
   }
-});*/
+});
