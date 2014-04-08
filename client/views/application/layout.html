@@ -1,31 +1,86 @@
-<template name="home">
-    <div>
-    	<h2>Iron-Router Examples</h2>
-    	<nav>
-		  <a href="{{ pathFor 'about' }}">About</a>
-		  <br />
-		  <a href="{{ pathFor 'doublepath' }}">Double Path</a>
-		  <br />
-		  <a>One Parameter (type /home/1 in URL)</a>
-		  <br />
-		  <a>Option Route Path (type /home/parameter/oproute in URL)</a>
-		  <br />
-		  <a href="{{ pathFor 'datatest' }}">Data</a>
-		  <br />
-		  <a href="{{ pathFor 'country' }}">List Countries and City</a>
-		</nav>
-		<br />
-	   <p>This page has rendered home</p>
+<template name="layout">
+	{{> yield region='index'}}
+	<div class="container">
+		{{> yield region='about'}}
+		{{> yield region='iron'}}
+		{{> yield region='data'}}
+		{{> yield region='vid'}}
 	</div>
 </template>
 
-<template name="about">
-    <div>
-      <a href="{{ pathFor 'home'}}">Back</a>
-	  <br />
-	   <p>This page has rendered the about page</p>
-	   <br />
+<template name="home">
+	<nav class="navbar navbar-default" role="navigation">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="{{ pathFor 'home' }}">Metoer Examples</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="{{ pathFor 'ironrouter' }}">Iron-Router</a></li>
+	        <li><a href="{{ pathFor 'video' }}">Video</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+</template>
+
+<template name="video">
+	<h1 class="col-md-12 text-center">Video Example</h1>
+	<div class="list-group col-md-2 col-md-offset-4 text-center">
+		<iframe 
+			id="player1" src="http://player.vimeo.com/video/27855315?api=1&player_id=player1" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+		</iframe>
 	</div>
+</template>
+
+<template name="ironrouter">  	
+	<h1 class="col-md-12 text-center">Iron-Router Examples</h1>
+	<div class="list-group col-md-2 text-center">
+	  <a class="list-group-item" href="{{ pathFor 'about' }}">About</a>
+	  <a class="list-group-item" href="{{ pathFor 'doublepath' }}">Double Path</a>
+	  <a class="list-group-item">One Parameter</a>
+	  <a class="list-group-item">Option Route Path</a>
+	  <a class="list-group-item" href="{{ pathFor 'passeddata' }}">Data</a>
+	  <a class="list-group-item" href="{{ pathFor 'country' }}">List Countries and City</a>
+	</div>
+</template>
+
+<template name="passeddata">
+	  <p class="col-md-4 col-md-offset-2 text-center">
+	  	{{title}}<br />{{description}}
+	  	this.route('datatest', {
+		  path: 'data',
+		  data: function(){
+			return {
+					title: 'Data Test',
+					description:'This page has rendered passed data'
+		    };
+		  }
+		});
+	  </p>
+</template>
+
+<template name="about">
+	  <div class="col-md-4 col-md-offset-4">
+		   <p>You are on your way to learning Meteor.Meteor packages used:
+		    standard-app-packages
+			blaze-layout
+			iron-router
+			ui
+			moment
+			underscore
+			underscore-string-latest
+			bootstrap-3
+			Mesosphere
+		   </p>
+	 </div>
 </template>
 
 <template name="doublepath">
@@ -53,13 +108,6 @@
 	   <p>This page has rendered a optional route path</p>
 	   <br />
 	</div>
-</template>
-
-<template name="datatest">
-	  <a href="{{ pathFor 'home'}}">Back</a>
-	  <br />
-  {{title}} - {{description}}
-  <br />
 </template>
 
 <template name="country">

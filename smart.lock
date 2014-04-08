@@ -9,7 +9,8 @@
       "moment": {},
       "underscore-string-latest": {},
       "Mesosphere": {},
-      "bootstrap-3": {}
+      "bootstrap-3": {},
+      "mixpanel": {}
     },
     "packages": {
       "iron-router": {
@@ -37,10 +38,15 @@
         "tag": "v3.1.1-1",
         "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
       },
+      "mixpanel": {
+        "git": "https://github.com/belisarius222/meteor-mixpanel.git",
+        "tag": "v2.2.1",
+        "commit": "4f93df31401f2f205b418e001a72e37844f68638"
+      },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
         "branch": "master",
-        "commit": "8bc53798fe5965669ae67c72f91829fcfdceabfd"
+        "commit": "eaa6b5f3c2c25f831f6453f8962b33f69d9b21a4"
       }
     }
   }

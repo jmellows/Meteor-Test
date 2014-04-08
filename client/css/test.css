@@ -1,0 +1,8 @@
+.example-block {
+    background-color: #A7CDEC;
+    height: 75px;
+}
+
+.example-block.alt {
+    background-color: #ECAFA7;
+}
